@@ -106,10 +106,14 @@ public class HW5 {
         IntList result4=net3.shortestPath();
         for (int i = 0; i < result4.size(); i++) System.out.print(result4.get(i) + " ");
         System.out.println();
+        int tempo=0;
         System.out.println("Calcolo il tempo di esecuzione in nanosecondi del metodo shortestPath:");
-        long startTime = System.nanoTime();
-        net3.shortestPath();
-        long endTime = System.nanoTime();
-        System.out.println((endTime - startTime));
+        for (int i = 0; i < 10; i++) {
+            long startTime = System.nanoTime();
+            net3.shortestPath();
+            long endTime = System.nanoTime();
+            tempo+=(endTime-startTime);
+        }
+        System.out.println((tempo/10)+" Nanosecondi");
     }
 }
