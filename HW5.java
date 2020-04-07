@@ -63,6 +63,8 @@ public class HW5 {
             net2.setTarget(Nodes2[4]);
             IntList result3=net2.shortestPath();
             for (int i = 0; i < result3.size(); i++) System.out.print(result3.get(i) + " ");
+            System.out.println("Errore nel metodo shortestPath, dovrebbe lanciare NoSuchPathException poichè non esite un percorso da 0 a 4");
+
         }
         catch (NoSuchPathException x){
             System.out.println("Eccezione NoSuchPathException di shortestPath lanciata correttamente");
@@ -103,5 +105,11 @@ public class HW5 {
         net3.addEdge(Nodes3[14],Nodes3[15]);
         IntList result4=net3.shortestPath();
         for (int i = 0; i < result4.size(); i++) System.out.print(result4.get(i) + " ");
+        System.out.println();
+        System.out.println("Calcolo il tempo di esecuzione in nanosecondi del metodo shortestPath:");
+        long startTime = System.nanoTime();
+        net3.shortestPath();
+        long endTime = System.nanoTime();
+        System.out.println((endTime - startTime));
     }
 }
